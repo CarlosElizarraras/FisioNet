@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+     <link rel="stylesheet" href="Estilos/EstiloContacto.css">
+</head>
+<body>
+  <h1>Contacto</h1>
+  
+<div class="container">
+  <form name="contact" method="POST" data-netlify="true">
+    <h2>Por favor, llene los siguientes campos:</h2>
+  <p>
+    <label>Nombre: <input type="text" name="Nombre" /></label>   
+  </p>
+  <p>
+    <label>Correo Electrónico: <input type="email" name="Correo" /></label>
+  </p>
+  <p>
+    <p>
+    <label>Edad: <input type="subject" name="Edad" /></label>
+  </p>
+    <label>Sexo: <select style="height: 8%;" name="Sexo[]" multiple>
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+    </select></label>
+  </p>
+  <p>
+    <label>Escriba sus malestares: <textarea name="Síntomas"></textarea></label>
+  </p>
+  <p>
+    <label>Pregunte a nuestro especialista: <textarea name="Mensaje"></textarea></label>
+  </p>
+  <p>
+    <button style="background-color: #28B4B2; color:white; font-size: 80%; font-family:cursive; " type="submit">Enviar</button>
+      </p>
+</form>
+
+</div>
+<button style="background-color: #28B4B2; color:white; font-size: 80%; font-family:cursive; "type="submit" onclick="location.href='paginaprincipal.html'">Regresar </button>
+</body>
+
+</html>

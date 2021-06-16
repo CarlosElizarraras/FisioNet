@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+body {
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url(../Imágenes/salud2.png);
+        text-align: center;
+
+}
+
+h2{
+        font-weight: 120;
+        color: #28B4B2;
+
+}
+.container {
+    background-color: white;
+    background-position: center center;
+    background-size: cover;
+    height: 95vh;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0% 15% 0% 15%;
+    color: black;
+}
+
+table{
+       text-align: left;
+
+}
+}
+form{
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+    text-align: center;
+}
+
+
+@media (min-width: 481px) and (max-width: 850px) {
+body {
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url(../Imágenes/salud2.png);
+        text-align: center;
+
+}
+.container {
+    background-color: white;
+    background-position: center center;
+    background-size: cover;
+    height: 105vh;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0% 15% 0% 15%;
+    color: black;
+    font-size: 12px;
+}
+
+
+}

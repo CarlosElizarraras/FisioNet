@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilos/EstiloBusqueda.css">
+    <title>Busqueda de síntomas</title>
+    
+    <script>
+      var EsguinceTobillo = ["dolor en tobillo", "hinchazón en tobillo", "capacidad limitada para moverse", "hematomas"];
+      var EsguinceRodilla = ["dolor en rodilla", "hinchazón en rodilla", "capacidad limitada para moverse", "hematomas"];
+      var EsguinceMuneca = ["dolor en muñeca o mano", "hinchazón en muñeca", "capacidad limitada para moverse", "hematomas"];
+      var EsguincePulgar = ["dolor en el pulgar", "hinchazón en el pulgar", "capacidad limitada para moverse", "hematomas"];
+      var Lumbalgia = ["dolor en la espalda", "sensación de debilidad", "contracturas musculares", "capacidad limitada para moverse"];
+      var Ciatica = ["dolor en la espalda", "hormigueo en pierna", "dolor en pantorrilla", "sensación de debilidad"];
+      var Miositis =["dolor en la espalda", "cansancio", "sensación de debilidad", "tropiezos"];
+      var OsgoodS=["dolor en rodilla", "sensación de debilidad", "tropiezos", "contracturas musculares", "dolor en espinilla"];
+      var PeriostitisT=["dolor en espinilla", "inflamación", "hormigueo en pierna", "contracturas musculares"];
+      var TunelC=["dolor en muñeca o mano", "capacidad limitada para moverse", "sensación de debilidad", "dolor en muñeca o mano"];
+      var TendinitisQ = ["dolor en muñeca o mano", "capacidad limitada para moverse", "dolor en el pulgar", "hinchazón en muñeca","dolor en muñeca o mano"]; 
+      var Enfermedadades = [EsguinceTobillo,EsguinceRodilla,EsguinceMuneca,EsguincePulgar,Lumbalgia,Ciatica,Miositis,OsgoodS,PeriostitisT,TunelC,TendinitisQ];
+      var Resultado =['<p><a href="Padecimientos/estobillo.html">Esguince de tobillo</a></p>',
+                      '<p><a href="Padecimientos/esrodilla.html">Esguince de rodilla</a></p>',
+                      '<p><a href="Padecimientos/esmuñeca.html">Esguince de muñeca</a></p>',
+                      '<p><a href="Padecimientos/espulgar.html">Esguince de pulgar</a></p>',
+                      '<p><a href="Padecimientos/lumbalgia.html">Lumbalgia</a></p>',
+                      '<p><a href="Padecimientos/ciatica.html">Ciática</a></p>',
+                      '<p><a href="Padecimientos/miositis.html">Miositis</a></p>',
+                      '<p><a href="Padecimientos/osgood.html">Enfermedad de Osgood-Schlatter</a></p>',
+                      '<p><a href="Padecimientos/periostitis.html">Periostitis tibial</a></p>',
+                      '<p><a href="Padecimientos/tunel.html">Síndrome del túnel carpiano</a></p>',
+                      '<p><a href="Padecimientos/quervain.html">Tendinitis De Quervain</a></p>'                      
+                    ];
+
+      
+      function busqueda() {
+      var Eaux=new Array (Enfermedadades.length);
+      Eaux.fill(0);
+      var response =[]
+      //Creamos un array que almacenará los valores de los input "sintomas"
+      var sintomas = []; 
+      //Recorremos todos los input checkbox con name = sintomas y que se encuentren "checked"
+      $("input[name='sintomas']:checked").each(function () {
+      //Mediante la función push agregamos al arreglo los values de los checkbox
+      sintomas.push(($(this).attr("value")));
+      });
+      for (i=0; i<sintomas.length;i++) {
+        for (j=0;j<Enfermedadades.length;j++){
+          if(Enfermedadades[j].includes(sintomas[i])){
+            Eaux[j]+=1;
+          }
+        }
+      }
+      var Mayor= Math.max(...Eaux);
+      var textHTML ="<p>Posibles padecimientos:</p>";
+      if(Mayor>0){
+          for(i=0; i<Enfermedadades.length;i++){
+            if(Eaux[i]==Mayor) {
+              response.push(Resultado[i]);
+              textHTML+=Resultado[i];
+            }
+        }
+      }
+      console.info(Eaux);
+      //console.info(response); 
+      document.getElementById("Casos").innerHTML = textHTML;
+    }
+      function borrar(){
+        $("input[name='sintomas']:checked").attr("Checked",false);
+      }
+    
+  </script>
+</head>
+<body>
+  <h1>Síntomas</h1>
+    <div class="container">
+      <h2>Por favor, seleccione los síntomas que tiene:</h2>
+  <table id="tablero">
+    <tr id="fila1">
+      <td><br><input type="checkbox" name="sintomas" id="-" value="dolor en tobillo">Dolor en tobillo</br></td>
+      <td><br><input type="checkbox" name="sintomas" id="-" value="hinchazón en tobillo">Hinchazón en tobillo</br></td>
+      <td><br><input type="checkbox" name="sintomas" id="-" value="capacidad limitada para moverse">Capacidad limitada para moverse</br></td>
+      <td><br><input type="checkbox" name="sintomas" id="-" value="hematomas">Hematomas</br></td>
+      <td><br><input type="checkbox" name="sintomas" id="-" value="hinchazón en muñeca">Hinchazón en muñeca</br></td>
+    </tr>
+    <tr id="fila2">
+      <td><input type="checkbox" name="sintomas" id="-" value="dolor en muñeca o mano">Dolor en muñeca o mano</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="dolor en rodilla">Dolor en rodilla</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="hinchazón en rodilla">Hinchazón en rodilla</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="dolor en el pulgar">Dolor en el pulgar</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="hinchazón en el pulgar">Hinchazón en el pulgar</td>
+    </tr>
+    <tr id="fila3">
+      <td><input type="checkbox" name="sintomas" id="-" value="hinchazón en el pulgar">Hinchazón en el pulgar</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="dolor en la espalda">Dolor en la espalda</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="sensación de debilidad">Sensación de debilidad</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="contracturas musculares">Contracturas musculares</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="dolor en pantorrilla">Dolor en pantorrilla</td>
+    </tr>       
+    <tr id="fila4">
+      <td><input type="checkbox" name="sintomas" id="-" value="cansancio">Cansancio</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="hormigueo en la pierna">Hormigueo en la pierna</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="tropiezos">Tropiezos</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="inflamación">Inflamación</td>
+      <td><input type="checkbox" name="sintomas" id="-" value="dolor en espinilla">Dolor en espinilla</td>
+    </tr>
+  </table>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <center><br><button style=" background-color: #28B4B2; color:white; font-size: 100%; font-family:cursive; width: 70px;" onclick="busqueda()">Buscar</button>
+<p>
+        <button style=" background-color: #28B4B2; color:white; font-size: 100%; font-family:cursive;"onclick="borrar()">Limpiar</button></br></center>
+      <p id="Casos"></p>
+
+      <p><button style="background-color: #28B4B2; color:white; font-size: 80%; font-family:cursive; "type="submit" onclick="location.href='paginaprincipal.html'">Regresar </button></p>
+</div>
+    
+    
+</body>
+</html>
